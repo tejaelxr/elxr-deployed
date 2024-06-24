@@ -1,0 +1,99 @@
+:root {
+    --primary-color: #1D88B2;
+    /* Primary color for your theme */
+    --text-color: #333;
+    /* Primary text color */
+    --background-color: white;
+    /* Light background color */
+}
+
+.about-pg-section {
+    padding: 60px 0;
+    background-color: var(--background-color);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.img-holder {
+    flex: 1;
+    text-align: center;
+}
+
+.img-holder img {
+    max-width: 150%;
+    height: auto;
+    border-radius: 10px;
+    /* transition: transform 0.3s ease-in-out; */
+}
+
+/* .img-holder:hover img {
+    transform: scale(1.05);
+} */
+
+.text-content {
+    flex: 2;
+}
+
+.section-title h2 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.section-title span {
+    display: block;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .img-holder,
+    .text-content {
+        flex: none;
+    }
+
+    .section-title span {
+        margin-bottom: 30px;
+    }
+}
+
+@keyframes fadeOutFadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+.section-title h2,
+.section-title span,
+.about-text p {
+    animation: fadeOutFadeIn 1s ease forwards;
+}

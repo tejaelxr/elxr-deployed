@@ -1,0 +1,63 @@
+	/*
+  	Flaticon icon font: Flaticon
+  	Creation date: 04/02/2019 02:24
+  	*/
+
+@font-face {
+  font-family: "Open Sans", sans-serif; "Flaticon";
+  src: url("../fonts/Flaticon.eot");
+  src: url("../fonts/Flaticond41d.eot?#iefix") format("embedded-opentype"),
+       url("../fonts/Flaticon.woff2") format("woff2"),
+       url("../fonts/Flaticon.woff") format("woff"),
+       url("../fonts/Flaticon.ttf") format("truetype"),
+       url("../fonts/Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Open Sans", sans-serif; "Flaticon";
+    src: url("../fonts/Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+  font-family: "Open Sans", sans-serif; Flaticon;
+        font-size: 20px;
+font-style: normal;
+margin-left: 20px;
+}
+
+.flaticon-next:before { content: "\f100"; }
+.flaticon-back:before { content: "\f101"; }
+.flaticon-back-1:before { content: "\f102"; }
+.flaticon-next-1:before { content: "\f103"; }
+.flaticon-advertising-agency-account-executive:before { content: "\f104"; }
+.flaticon-rocket-launch:before { content: "\f105"; }
+.flaticon-fireworks:before { content: "\f106"; }
+.flaticon-smile:before { content: "\f107"; }
+.flaticon-market:before { content: "\f108"; }
+.flaticon-data:before { content: "\f109"; }
+.flaticon-solution:before { content: "\f10a"; }
+.flaticon-browser:before { content: "\f10b"; }
+.flaticon-internet:before { content: "\f10c"; }
+.flaticon-megaphone:before { content: "\f10d"; }
+.flaticon-money:before { content: "\f10e"; }
+.flaticon-files-and-folders:before { content: "\f10f"; }
+.flaticon-hand-shake:before { content: "\f110"; }
+.flaticon-left-quote:before { content: "\f111"; }
+.flaticon-left-quotes-sign:before { content: "\f112"; }
+.flaticon-left-quote-1:before { content: "\f113"; }
+.flaticon-blocks-with-angled-cuts:before { content: "\f114"; }
+.flaticon-play-button:before { content: "\f115"; }
+.flaticon-diamond:before { content: "\f116"; }
+.flaticon-light-bulb:before { content: "\f117"; }
+.flaticon-happiness:before { content: "\f118"; }
+.flaticon-happy:before { content: "\f119"; }
+.flaticon-standard:before { content: "\f11a"; }
+.flaticon-suitcase:before { content: "\f11b"; }
+.flaticon-king:before { content: "\f11c"; }
+.flaticon-crown:before { content: "\f11d"; }
+.flaticon-crown-1:before { content: "\f11e"; }

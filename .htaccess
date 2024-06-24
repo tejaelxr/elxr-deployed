@@ -1,0 +1,7 @@
+
+RewriteEngine on
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-SSL} !on
+RewriteCond %{HTTP_HOST} ^elxrtech\.com$
+RewriteRule ^/?$ "https\:\/\/elxrtech\.com\/" [R=301,L]
+

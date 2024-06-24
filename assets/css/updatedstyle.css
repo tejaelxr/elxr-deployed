@@ -1,0 +1,182 @@
+/* Styles for Our Services in home page */
+/* Container and Figures */
+.container {
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+}
+
+.figure {
+    position: relative;
+    width: calc(25% - 10px);
+    height: auto;
+    margin: 5px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.figure img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.figure:hover img {
+    transform: scale(1.1);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.figure:hover .overlay {
+    opacity: 1;
+}
+
+/* Pop-up */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1000;
+    display: none;
+    max-width: 90%;
+    max-height: 90%;
+    overflow: auto;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Overlay */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+/* Blur effect when popup is active */
+.blur-effect {
+    filter: blur(5px);
+}
+
+
+/* Styles for Current Service in Home page */
+
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: "Open Sans", sans-serif;
+    overflow-x: hidden; /* Prevents horizontal scrollbar */
+}
+
+.page-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows the children to wrap */
+    width: 100%;
+    margin: 0;
+    overflow: hidden; /* Prevents horizontal scrollbar */
+}
+
+#logo-container {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+    background: #fff; /* Your preferred background color */
+    padding: 20px;
+    min-height: 300px; /* Ensure a minimum height */
+}
+
+.content-left {
+    flex: 1;
+    background-color: #fff;
+    padding: 20px;
+    overflow-y: auto;
+    text-align: justify; /* Justifies the paragraph text */
+}
+
+.logo-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    animation: scroll-logos 10s linear infinite;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.logoc {
+    width: 33.333%;
+    box-sizing: border-box;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes scroll-logos {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-100%); /* Scrolls the full height up */
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+    .page-container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    #logo-container, .content-left {
+        width: 100%;
+        padding: 10px; /* Reduce padding for smaller screens */
+    }
+
+    .logo-wrapper {
+        height: auto;
+        position: relative;
+    }
+
+    #logo-container {
+        min-height: 200px; /* Adjust minimum height for smaller screens */
+    }
+}
+
+@media (max-width: 767px) {
+    .logoc {
+        width: 50%;
+    }
+}
