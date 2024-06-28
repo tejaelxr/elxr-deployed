@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Media Slider</title>
     <style>
-        body, html {
+        body,
+        html {
             margin: 0;
             padding: 0;
             width: 100%;
@@ -33,7 +35,8 @@
             position: relative;
         }
 
-        img, video {
+        img,
+        video {
             width: 100%;
             display: block;
         }
@@ -59,82 +62,85 @@
         }
     </style>
 </head>
+
 <body>
 
-<div id="slider" class="slider-container">
-    <div id="sliderContent" class="slider-content">
-        <!-- Hardcoded slider items -->
-        <div class="slider-item">
-            <img src="assets/slider_images/Home-pg-banner.jpg" alt="Slide 1">
+    <div id="slider" class="slider-container">
+        <div id="sliderContent" class="slider-content">
+            <!-- Hardcoded slider items -->
+            <div class="slider-item">
+                <img src="assets/slider_images/Home-pg-banner.jpg" alt="Slide 1">
+            </div>
+            <div class="slider-item">
+                <img src="assets/slider_images/CRM_ERP_Fin_Data.jpg" alt="Slide 2">
+            </div>
+            <div class="slider-item">
+                <img src="assets/slider_images/RetainIT_Slider.jpg" alt="Slide 3">
+            </div>
+            <div class="slider-item">
+                <img src="assets/slider_images/HRMS_ATS_IS_Slider.jpg" alt="Slide 3">
+            </div>
+            <!-- Add more slides as needed -->
         </div>
-        <div class="slider-item">
-            <img src="assets/slider_images/CRM_ERP_Fin_Data.jpg" alt="Slide 2">
-        </div>
-        <div class="slider-item">
-            <img src="assets/slider_images/RetainIT_Slider.jpg" alt="Slide 3">
-        </div>
-        <div class="slider-item">
-            <img src="assets/slider_images/HRMS_ATS_IS_Slider.jpg" alt="Slide 3">
-        </div>
-        <!-- Add more slides as needed -->
+        <button id="prevSlide" class="slider-arrow">
+            << /button>
+                <button id="nextSlide" class="slider-arrow">></button>
     </div>
-    <button id="prevSlide" class="slider-arrow"><</button>
-    <button id="nextSlide" class="slider-arrow">></button>
-</div>
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const sliderContent = document.getElementById("sliderContent");
-    let currentSlide = 0;
-    let slideInterval;
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const sliderContent = document.getElementById("sliderContent");
+            let currentSlide = 0;
+            let slideInterval;
 
-    function startSlideShow() {
-        if (slideInterval) {
-            clearInterval(slideInterval);
-        }
-        slideInterval = setInterval(nextSlide, 10000);
-    }
+            function startSlideShow() {
+                if (slideInterval) {
+                    clearInterval(slideInterval);
+                }
+                slideInterval = setInterval(nextSlide, 10000);
+            }
 
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % sliderContent.children.length;
-        updateSlidePosition();
-        if (sliderContent.children[currentSlide].querySelector("video")) {
-            clearInterval(slideInterval); // Stop auto-sliding if the current slide is a video
-        }
-    }
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % sliderContent.children.length;
+                updateSlidePosition();
+                if (sliderContent.children[currentSlide].querySelector("video")) {
+                    clearInterval(slideInterval); // Stop auto-sliding if the current slide is a video
+                }
+            }
 
-    function prevSlide() {
-        currentSlide = (currentSlide - 1 + sliderContent.children.length) % sliderContent.children.length;
-        updateSlidePosition();
-    }
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + sliderContent.children.length) % sliderContent.children.length;
+                updateSlidePosition();
+            }
 
-    function videoEnded() {
-        clearInterval(slideInterval);
-        nextSlide();
-        startSlideShow();
-    }
+            function videoEnded() {
+                clearInterval(slideInterval);
+                nextSlide();
+                startSlideShow();
+            }
 
-    function updateSlidePosition() {
-        sliderContent.style.transform = `translateX(-${currentSlide * 100}%)`;
-    }
+            function updateSlidePosition() {
+                sliderContent.style.transform = `translateX(-${currentSlide * 100}%)`;
+            }
 
-    startSlideShow();
+            startSlideShow();
 
-    document.getElementById('nextSlide').addEventListener('click', () => {
-        nextSlide();
-        resetSlideInterval();
-    });
+            document.getElementById('nextSlide').addEventListener('click', () => {
+                nextSlide();
+                resetSlideInterval();
+            });
 
-    document.getElementById('prevSlide').addEventListener('click', () => {
-        prevSlide();
-        resetSlideInterval();
-    });
+            document.getElementById('prevSlide').addEventListener('click', () => {
+                prevSlide();
+                resetSlideInterval();
+            });
 
-    function resetSlideInterval() {
-        clearInterval(slideInterval); // Clear existing interval
-        startSlideShow(); // Start a new interval
-    }
-});
-</script>
+            function resetSlideInterval() {
+                clearInterval(slideInterval); // Clear existing interval
+                startSlideShow(); // Start a new interval
+            }
+        });
+    </script>
 </body>
+
 </html>

@@ -262,89 +262,94 @@
         <div style="width: 100%; margin: auto; max-width: 1000px;">
             <iframe src="slider-static.html" width="100%" height="500px" style="border:none;"></iframe>
         </div>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Click to Show Popup</title>
-    </head>
-    <body>
-        <h2 style="padding-left: 20px;">Our Services</h2>
-        <div id="modal-overlay" class="modal-overlay"></div>
-<div class="container blur-target">
-    <div class="figure-container">
-        <div class="heading">Professional Service</div>
-        <div class="figure" id="figure1" data-popup-src="assets/images/professional_services_content.png">
-            <img src="assets/images3.0/Professional Services - Product-Project Implementation.png" alt="Image 1">
-            <div class="overlay">Professional Service</div>
-        </div>
-    </div>
-    <div class="figure-container">
-        <div class="heading">Products & Accelerators</div>
-        <div class="figure" id="figure2" data-popup-src="assets/images/products_accelerators_content.png">
-            <img src="assets/images3.0/Products and Accelerators - Market Ready Products.png" alt="Image 2">
-            <div class="overlay">Products & Accelerators</div>
-        </div>
-    </div>
-    <div class="figure-container">
-        <div class="heading">Staff Augmentation</div>
-        <div class="figure" id="figure3" data-popup-src="assets/images/staff_augumentation_content.png">
-            <img src="assets/images3.0/Services - Staff Augmentation - Avante Garde Approach (2).png" alt="Image 3">
-            <div class="overlay">Staff Augmentation</div>
-        </div>
-    </div>
-    <div class="figure-container">
-        <div class="heading">Budget Teams</div>
-        <div class="figure" id="figure4" data-popup-src="assets/images/budget_teams_content.png">
-            <img src="assets/images3.0/Budget Teams-Concatenated Skill Set-01.png" alt="Image 4">
-            <div class="overlay">Budget Teams</div>
-        </div>
-    </div>
-</div>
+        <html lang="en">
 
-    
-        <!-- Popup window -->
-        <div id="popup" class="popup">
-            <span class="close" onclick="closePopup()">×</span>
-            <img id="popupImage" src="" alt="Popup Image">
-        </div>
-    
-        <script>
-            // Function to show the popup with the larger image
-            function showPopup(element) {
-                var popup = document.getElementById('popup');
-                var popupImage = document.getElementById('popupImage');
-                var imageSrc = element.getAttribute('data-popup-src'); // Get custom attribute value
-                popupImage.src = imageSrc;
-                popup.style.display = 'block';
-                document.getElementById('modal-overlay').style.display = 'block';
-                document.querySelector('.container').classList.add('blur-effect');
-            }
-    
-            // Function to close the popup
-            function closePopup() {
-                var popup = document.getElementById('popup');
-                popup.style.display = 'none';
-                document.getElementById('modal-overlay').style.display = 'none';
-                document.querySelector('.container').classList.remove('blur-effect');
-            }
-    
-            // Add event listeners to figures for showing the popup
-            var figures = document.querySelectorAll('.figure');
-            figures.forEach(function (figure) {
-                figure.addEventListener('click', function () {
-                    showPopup(this); // Pass the figure element to the function
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Click to Show Popup</title>
+        </head>
+
+        <body>
+            <h2 style="padding-left: 20px;">Our Services</h2>
+            <div id="modal-overlay" class="modal-overlay"></div>
+            <div class="container blur-target">
+                <div class="figure-container">
+                    <div class="heading">Professional Service</div>
+                    <div class="figure" id="figure1" data-popup-src="assets/images/professional_services_content.png">
+                        <img src="assets/images3.0/Professional Services - Product-Project Implementation.png"
+                            alt="Image 1">
+                        <div class="overlay">Professional Service</div>
+                    </div>
+                </div>
+                <div class="figure-container">
+                    <div class="heading">Products & Accelerators</div>
+                    <div class="figure" id="figure2" data-popup-src="assets/images/products_accelerators_content.png">
+                        <img src="assets/images3.0/Products and Accelerators - Market Ready Products.png" alt="Image 2">
+                        <div class="overlay">Products & Accelerators</div>
+                    </div>
+                </div>
+                <div class="figure-container">
+                    <div class="heading">Staff Augmentation</div>
+                    <div class="figure" id="figure3" data-popup-src="assets/images/staff_augumentation_content.png">
+                        <img src="assets/images3.0/Services - Staff Augmentation - Avante Garde Approach (2).png"
+                            alt="Image 3">
+                        <div class="overlay">Staff Augmentation</div>
+                    </div>
+                </div>
+                <div class="figure-container">
+                    <div class="heading">Budget Teams</div>
+                    <div class="figure" id="figure4" data-popup-src="assets/images/budget_teams_content.png">
+                        <img src="assets/images3.0/Budget Teams-Concatenated Skill Set-01.png" alt="Image 4">
+                        <div class="overlay">Budget Teams</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Popup window -->
+            <div id="popup" class="popup">
+                <span class="close" onclick="closePopup()">×</span>
+                <img id="popupImage" src="" alt="Popup Image">
+            </div>
+
+            <script>
+                // Function to show the popup with the larger image
+                function showPopup(element) {
+                    var popup = document.getElementById('popup');
+                    var popupImage = document.getElementById('popupImage');
+                    var imageSrc = element.getAttribute('data-popup-src'); // Get custom attribute value
+                    popupImage.src = imageSrc;
+                    popup.style.display = 'block';
+                    document.getElementById('modal-overlay').style.display = 'block';
+                    document.querySelector('.container').classList.add('blur-effect');
+                }
+
+                // Function to close the popup
+                function closePopup() {
+                    var popup = document.getElementById('popup');
+                    popup.style.display = 'none';
+                    document.getElementById('modal-overlay').style.display = 'none';
+                    document.querySelector('.container').classList.remove('blur-effect');
+                }
+
+                // Add event listeners to figures for showing the popup
+                var figures = document.querySelectorAll('.figure');
+                figures.forEach(function (figure) {
+                    figure.addEventListener('click', function () {
+                        showPopup(this); // Pass the figure element to the function
+                    });
                 });
-            });
-    
-            // Close popup when clicking outside
-            document.getElementById('modal-overlay').addEventListener('click', closePopup);
-        </script>
-    </body>
-</html>
+
+                // Close popup when clicking outside
+                document.getElementById('modal-overlay').addEventListener('click', closePopup);
+            </script>
+        </body>
+
+        </html>
 
 
-    <!-- Place tabs here -->
+        <!-- Place tabs here -->
     </div>
     </section>
     <!-- end features-section -->
@@ -353,69 +358,87 @@
     </div>
     <!-- end of page-wrapper -->
 
-    
+
     <!-- beginning of the clients scrolldown-->
     <!DOCTYPE html>
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Client Logos Scroll</title>
-    <link rel="stylesheet" href="path/to/your/updated/css/file.css"> <!-- Link to the updated CSS file -->
-</head>
-<body>
-    <!-- Current Clients Section -->
-    <div class="page-container">
-        <div class="content-left">
-            <h2>Current Clients</h2>
-            <p>At ELXR Technologies, we are driven by a commitment to excellence, a journey reflected in the satisfaction and achievements of our distinguished clients. This curated selection of clients serves as a testament to our dedication, showcasing the broad spectrum of industries and projects we've had the honor to contribute to. Each logo represents a story of partnership and progress, highlighting our adaptability and the consistent professionalism and efficiency of our team. The diversity of our client portfolio underscores our capability to exceed expectations across various domains, affirming the trust and confidence bestowed upon us.</p>
-        </div>
-        <div id="logo-container">
-            <div class="logo-wrapper">
-                <div class="logoc"><img src="assets/images/client/Accenture.png" alt="Client Logo 1"></div>
-                <div class="logoc"><img src="assets/images/client/Aditi.png" alt="Client Logo 2"></div>
-                <div class="logoc"><img src="assets/images/client/Amdocs.png" alt="Client Logo 3"></div>
-                <div class="logoc"><img src="assets/images/client/Capegemini.png" alt="Client Logo 4"></div>
-                <div class="logoc"><img src="assets/images/client/Cognizant.png" alt="Client Logo 5"></div>
-                <div class="logoc"><img src="assets/images/client/Deloitte.png" alt="Client Logo 6"></div>
-                <div class="logoc"><img src="assets/images/client/Genpact.png" alt="Client Logo 7"></div>
-                <div class="logoc"><img src="assets/images/client/Infor.png" alt="Client Logo 8"></div>
-                <div class="logoc"><img src="assets/images/client/Infosys.png" alt="Client Logo 9"></div>
-                <div class="logoc"><img src="assets/images/client/LTTS.png" alt="Client Logo 10"></div>
-                <div class="logoc"><img src="assets/images/client/NTTData.png" alt="Client Logo 11"></div>
-                <div class="logoc"><img src="assets/images/client/TEKsystems.png" alt="Client Logo 12"></div>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Client Logos Scroll</title>
+        <link rel="stylesheet" href="path/to/your/updated/css/file.css"> <!-- Link to the updated CSS file -->
+    </head>
+
+    <body>
+        <!-- Current Clients Section -->
+        <div class="page-container">
+            <div class="content-left">
+                <h2>Current Clients</h2>
+                <p>At ELXR Technologies, we are driven by a commitment to excellence, a journey reflected in the
+                    satisfaction and achievements of our distinguished clients. This curated selection of clients serves
+                    as a testament to our dedication, showcasing the broad spectrum of industries and projects we've had
+                    the honor to contribute to. Each logo represents a story of partnership and progress, highlighting
+                    our adaptability and the consistent professionalism and efficiency of our team. The diversity of our
+                    client portfolio underscores our capability to exceed expectations across various domains, affirming
+                    the trust and confidence bestowed upon us.</p>
+            </div>
+            <div id="logo-container">
+                <div class="logo-wrapper">
+                    <div class="logoc"><img src="assets/images/client/Accenture.png" alt="Client Logo 1"></div>
+                    <div class="logoc"><img src="assets/images/client/Aditi.png" alt="Client Logo 2"></div>
+                    <div class="logoc"><img src="assets/images/client/Amdocs.png" alt="Client Logo 3"></div>
+                    <div class="logoc"><img src="assets/images/client/Capegemini.png" alt="Client Logo 4"></div>
+                    <div class="logoc"><img src="assets/images/client/Cognizant.png" alt="Client Logo 5"></div>
+                    <div class="logoc"><img src="assets/images/client/Deloitte.png" alt="Client Logo 6"></div>
+                    <div class="logoc"><img src="assets/images/client/Genpact.png" alt="Client Logo 7"></div>
+                    <div class="logoc"><img src="assets/images/client/Infor.png" alt="Client Logo 8"></div>
+                    <div class="logoc"><img src="assets/images/client/Infosys.png" alt="Client Logo 9"></div>
+                    <div class="logoc"><img src="assets/images/client/LTTS.png" alt="Client Logo 10"></div>
+                    <div class="logoc"><img src="assets/images/client/NTTData.png" alt="Client Logo 11"></div>
+                    <div class="logoc"><img src="assets/images/client/TEKsystems.png" alt="Client Logo 12"></div>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- Clients Beneficiaries Section -->
-    <div class="page-container" style="padding-top: 50px;">
-        <div class="content-left">
-            <h2>Clients Beneficiaries</h2>
-            <p>At ELXR Technologies, our mission extends beyond delivering innovative solutions to our clients; it reaches the communities and individuals who ultimately benefit from our work. This section is dedicated to showcasing the beneficiaries of our projects, underscoring the positive impact and value we contribute through our collaborations. Each represented group or entity stands as a beacon of the transformative potential our partnerships hold. By empowering our clients, we play a pivotal role in fostering advancements and improvements for these beneficiaries, reflecting our commitment to creating meaningful change. The variety and depth of these impacts highlight our role in driving forward initiatives that matter, demonstrating the trust in our ability to serve not just our clients, but the broader society they impact.</p>
-        </div>
-        <div id="logo-container">
-            <div class="logo-wrapper">
-                <div class="logoc"><img src="assets/images/clients/Apple.png" alt="Client Logo Apple"></div>
-                <div class="logoc"><img src="assets/images/clients/AT&T.png" alt="Client Logo AT&T"></div>
-                <div class="logoc"><img src="assets/images/clients/Boeing.png" alt="Client Logo Boeing"></div>
-                <div class="logoc"><img src="assets/images3.0/cvs.png" alt="Client Logo CVS"></div>
-                <div class="logoc"><img src="assets/images3.0/doc.png" alt="Client Logo DOC"></div>
-                <div class="logoc"><img src="assets/images/clients/Nike.png" alt="Client Logo Nike"></div>
-                <div class="logoc"><img src="assets/images3.0/paypal.png" alt="Client Logo PayPal"></div>
-                <div class="logoc"><img src="assets/images/clients/Salesforce.png" alt="Client Logo Salesforce"></div>
-                <div class="logoc"><img src="assets/images/clients/Toyota.png" alt="Client Logo Toyota"></div>
-                <div class="logoc"><img src="assets/images/clients/Vanguard.png" alt="Client Logo Vanguard"></div>
-                <div class="logoc"><img src="assets/images/clients/MGM.png" alt="Client Logo MGM"></div>
-                <div class="logoc"><img src="assets/images/clients/Verizon.png" alt="Client Logo Verizon"></div>
+        <!-- Clients Beneficiaries Section -->
+        <div class="page-container" style="padding-top: 50px;">
+            <div class="content-left">
+                <h2>Clients Beneficiaries</h2>
+                <p>At ELXR Technologies, our mission extends beyond delivering innovative solutions to our clients; it
+                    reaches the communities and individuals who ultimately benefit from our work. This section is
+                    dedicated to showcasing the beneficiaries of our projects, underscoring the positive impact and
+                    value we contribute through our collaborations. Each represented group or entity stands as a beacon
+                    of the transformative potential our partnerships hold. By empowering our clients, we play a pivotal
+                    role in fostering advancements and improvements for these beneficiaries, reflecting our commitment
+                    to creating meaningful change. The variety and depth of these impacts highlight our role in driving
+                    forward initiatives that matter, demonstrating the trust in our ability to serve not just our
+                    clients, but the broader society they impact.</p>
+            </div>
+            <div id="logo-container">
+                <div class="logo-wrapper">
+                    <div class="logoc"><img src="assets/images/clients/Apple.png" alt="Client Logo Apple"></div>
+                    <div class="logoc"><img src="assets/images/clients/AT&T.png" alt="Client Logo AT&T"></div>
+                    <div class="logoc"><img src="assets/images/clients/Boeing.png" alt="Client Logo Boeing"></div>
+                    <div class="logoc"><img src="assets/images3.0/cvs.png" alt="Client Logo CVS"></div>
+                    <div class="logoc"><img src="assets/images3.0/doc.png" alt="Client Logo DOC"></div>
+                    <div class="logoc"><img src="assets/images/clients/Nike.png" alt="Client Logo Nike"></div>
+                    <div class="logoc"><img src="assets/images3.0/paypal.png" alt="Client Logo PayPal"></div>
+                    <div class="logoc"><img src="assets/images/clients/Salesforce.png" alt="Client Logo Salesforce">
+                    </div>
+                    <div class="logoc"><img src="assets/images/clients/Toyota.png" alt="Client Logo Toyota"></div>
+                    <div class="logoc"><img src="assets/images/clients/Vanguard.png" alt="Client Logo Vanguard"></div>
+                    <div class="logoc"><img src="assets/images/clients/MGM.png" alt="Client Logo MGM"></div>
+                    <div class="logoc"><img src="assets/images/clients/Verizon.png" alt="Client Logo Verizon"></div>
+                </div>
             </div>
         </div>
-    </div>
-</body>
-</html>
+    </body>
 
-    
+    </html>
+
+
     <!-- contactus -->
     <section id="contactus">
         <div class="container">
@@ -427,10 +450,11 @@
                         sizes="(max-width: 500px) 100vw, 500px">
                 </div>
             </div>
-    
+
             <div class="col-md-6" style="padding-top: 50px;">
-                <h2 style="color: #444644;text-align: left;font-weight: 600; margin: 5px 0px;" class="text-left">CONTACT US</h2>
-    
+                <h2 style="color: #444644;text-align: left;font-weight: 600; margin: 5px 0px;" class="text-left">CONTACT
+                    US</h2>
+
                 <div class="contact-form">
                     <form method="post" class="contact-validation-active" action="https://formspree.io/f/xwkgnldw">
                         <div class="row">
@@ -483,41 +507,45 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Load Google reCAPTCHA asynchronously -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    
 
-<!-- All JavaScript files
+
+    <!-- All JavaScript files
 ================================================== -->
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
 
-<!-- Plugins for this template -->
-<script src="assets/js/jquery-plugin-collection.js"></script>
+    <!-- Plugins for this template -->
+    <script src="assets/js/jquery-plugin-collection.js"></script>
 
-<!-- Custom script for this template -->
-<script src="assets/js/script.js"></script>
+    <!-- Custom script for this template -->
+    <script src="assets/js/script.js"></script>
 
-<script src='https://www.google.com/recaptcha/api.js'></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 </body>
 <style>
-.footer-iframe {
-    width: 100%; /* Adjust the width as necessary */
-    height: 60%; /* Initial height, this will be adjusted by JavaScript */
-    border: none; /* Optional: removes the iframe border */
-    overflow: hidden; /* Prevents scrolling within the iframe */
-}
+    .footer-iframe {
+        width: 100%;
+        /* Adjust the width as necessary */
+        height: 60%;
+        /* Initial height, this will be adjusted by JavaScript */
+        border: none;
+        /* Optional: removes the iframe border */
+        overflow: hidden;
+        /* Prevents scrolling within the iframe */
+    }
 </style>
 <iframe src="footer.html" class="footer-iframe" scrolling="no"></iframe>
 <script>
-window.addEventListener('load', function() {
-    var iframe = document.querySelector('.footer-iframe');
-    iframe.onload = function() {
-        // Adjust the height of the iframe to its body's scrollHeight
-        this.style.height = this.contentWindow.document.body.scrollHeight + 'px';
-    };
-});
+    window.addEventListener('load', function () {
+        var iframe = document.querySelector('.footer-iframe');
+        iframe.onload = function () {
+            // Adjust the height of the iframe to its body's scrollHeight
+            this.style.height = this.contentWindow.document.body.scrollHeight + 'px';
+        };
+    });
 </script>
 
 
@@ -542,13 +570,13 @@ window.addEventListener('load', function() {
 </body>
 
 <script>
-window.addEventListener('message', function(event) {
-// Consider checking event.origin for security
-if (event.data.action === 'adjustHeight') {
-var iframe = document.querySelector('.footer-iframe');
-iframe.style.height = event.data.height + 'px';
-}
-});
+    window.addEventListener('message', function (event) {
+        // Consider checking event.origin for security
+        if (event.data.action === 'adjustHeight') {
+            var iframe = document.querySelector('.footer-iframe');
+            iframe.style.height = event.data.height + 'px';
+        }
+    });
 </script>
 
 

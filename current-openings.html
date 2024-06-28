@@ -122,7 +122,10 @@
                     <div class="col col-lg-7">
                         <div class="about-text">
                             <h4>SHOWCASE YOUR TALENT </h4>
-                            <p>Discover a Culture of Learning, Innovation, and Growth. We streamline the hiring process, saving you time and hassle. Our staff augmentation services ensure a tailored fit for your skills. Thrive in a role that matches your expertise and fuels your career growth.</p>
+                            <p>Discover a Culture of Learning, Innovation, and Growth. We streamline the hiring process,
+                                saving you time and hassle. Our staff augmentation services ensure a tailored fit for
+                                your skills. Thrive in a role that matches your expertise and fuels your career growth.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -148,7 +151,8 @@
                                     <div class="col-md-1">
                                         <a class="collapsed" role="button" data-toggle="collapse"
                                             href="#collapseItemCloseOne" aria-expanded="true"
-                                            aria-controls="collapseItemCloseOne"></a> <i class="fas fa-plus" style="color:transparent;"></i>
+                                            aria-controls="collapseItemCloseOne"></a> <i class="fas fa-plus"
+                                            style="color:transparent;"></i>
                                     </div>
                                     <div class="col-sm-6 col-md-7">
                                         <h4 class="panel-title">
@@ -187,7 +191,8 @@
                                             <div style="padding-left: 30px;">
                                                 <ul>
                                                     <li>Develop software applications, web applications, microservices,
-                                                        and RESTful APIs using Golang, Java, and other technologies.</li>
+                                                        and RESTful APIs using Golang, Java, and other technologies.
+                                                    </li>
                                                     <li>Implement test cases for applications and features developed;
                                                         write and execute test cases to ensure functionality.</li>
                                                     <li>Integrate services with various databases to manage application
@@ -243,7 +248,8 @@
                                     <div class="col-md-1">
                                         <a class="collapsed" role="button" data-toggle="collapse"
                                             href="#collapseItemCloseTwo" aria-expanded="true"
-                                            aria-controls="collapseItemCloseTwo"></a><i class="fas fa-plus" style="color: transparent;"></i>
+                                            aria-controls="collapseItemCloseTwo"></a><i class="fas fa-plus"
+                                            style="color: transparent;"></i>
                                     </div>
                                     <div class="col-sm-6 col-md-7">
                                         <h4 class="panel-title">
@@ -339,27 +345,31 @@
         <!-- Integrate footer using iframe -->
         <style>
             .footer-iframe {
-                width: 100%; /* Adjust the width as necessary */
-                height: 60%; /* Initial height, this will be adjusted by JavaScript */
-                border: none; /* Optional: removes the iframe border */
-                overflow: hidden; /* Prevents scrolling within the iframe */
+                width: 100%;
+                /* Adjust the width as necessary */
+                height: 60%;
+                /* Initial height, this will be adjusted by JavaScript */
+                border: none;
+                /* Optional: removes the iframe border */
+                overflow: hidden;
+                /* Prevents scrolling within the iframe */
             }
-            </style>
+        </style>
         <iframe src="footer.html" class="footer-iframe" scrolling="no"></iframe>
         <script>
-        function adjustIframeHeight() {
-            var iframe = document.querySelector('.footer-iframe');
-            iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
-        }
-        window.addEventListener('load', adjustIframeHeight);
-        window.addEventListener('resize', adjustIframeHeight);
-
-        window.addEventListener('message', function(event) {
-            if (event.data.action === 'adjustHeight') {
+            function adjustIframeHeight() {
                 var iframe = document.querySelector('.footer-iframe');
-                iframe.style.height = event.data.height + 'px';
+                iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
             }
-        });
+            window.addEventListener('load', adjustIframeHeight);
+            window.addEventListener('resize', adjustIframeHeight);
+
+            window.addEventListener('message', function (event) {
+                if (event.data.action === 'adjustHeight') {
+                    var iframe = document.querySelector('.footer-iframe');
+                    iframe.style.height = event.data.height + 'px';
+                }
+            });
         </script>
     </div>
     <!-- end of page-wrapper -->
@@ -376,8 +386,8 @@
 
     <!-- JavaScript to handle accordion functionality -->
     <script>
-        $(document).ready(function() {
-            $('.panel-heading a').on('click', function() {
+        $(document).ready(function () {
+            $('.panel-heading a').on('click', function () {
                 var $this = $(this);
                 if ($this.hasClass('collapsed')) {
                     $this.find('i').removeClass('fa-plus').addClass('fa-minus');
@@ -386,9 +396,9 @@
                 }
             });
 
-            $('#accordionSingleClosed').on('hidden.bs.collapse', function(e) {
+            $('#accordionSingleClosed').on('hidden.bs.collapse', function (e) {
                 $(e.target).parent().find('.panel-heading a i').removeClass('fa-minus').addClass('fa-plus');
-            }).on('shown.bs.collapse', function(e) {
+            }).on('shown.bs.collapse', function (e) {
                 $(e.target).parent().find('.panel-heading a i').removeClass('fa-plus').addClass('fa-minus');
             });
         });

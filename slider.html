@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Media Slider</title>
     <style>
-        body, html {
+        body,
+        html {
             margin: 0;
             padding: 0;
             width: 100%;
@@ -32,7 +34,8 @@
             position: relative;
         }
 
-        img, video {
+        img,
+        video {
             width: 100%;
             display: block;
         }
@@ -58,100 +61,103 @@
         }
     </style>
 </head>
+
 <body>
 
-<div id="slider" class="slider-container">
-    <div id="sliderContent" class="slider-content">
-        <!-- Slider items will be injected here -->
+    <div id="slider" class="slider-container">
+        <div id="sliderContent" class="slider-content">
+            <!-- Slider items will be injected here -->
+        </div>
+        <button id="prevSlide" class="slider-arrow">
+            << /button>
+                <button id="nextSlide" class="slider-arrow">></button>
     </div>
-    <button id="prevSlide" class="slider-arrow"><</button>
-    <button id="nextSlide" class="slider-arrow">></button>
-</div>
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const sliderContent = document.getElementById("sliderContent");
-    let currentSlide = 0;
-    let slideInterval;
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const sliderContent = document.getElementById("sliderContent");
+            let currentSlide = 0;
+            let slideInterval;
 
-    async function fetchSliderData() {
-        try {
-            const response = await fetch("http://127.0.0.1:9000/slider");
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            const data = await response.json();
+            async function fetchSliderData() {
+                try {
+                    const response = await fetch("http://127.0.0.1:9000/slider");
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    const data = await response.json();
 
-            data.forEach((item, index) => {
-                const slide = document.createElement("div");
-                slide.className = "slider-item";
-                if (item.slide_type === "image") {
-                    const img = document.createElement("img");
-                    img.src = item.content;
-                    slide.appendChild(img);
-                } else if (item.slide_type === "video") {
-                    const video = document.createElement("video");
-                    video.src = item.content;
-                    video.setAttribute("controls", "true");
-                    video.onended = videoEnded;
-                    slide.appendChild(video);
+                    data.forEach((item, index) => {
+                        const slide = document.createElement("div");
+                        slide.className = "slider-item";
+                        if (item.slide_type === "image") {
+                            const img = document.createElement("img");
+                            img.src = item.content;
+                            slide.appendChild(img);
+                        } else if (item.slide_type === "video") {
+                            const video = document.createElement("video");
+                            video.src = item.content;
+                            video.setAttribute("controls", "true");
+                            video.onended = videoEnded;
+                            slide.appendChild(video);
+                        }
+                        sliderContent.appendChild(slide);
+                    });
+
+                    startSlideShow();
+                } catch (error) {
+                    console.error("Failed to fetch slider data:", error);
                 }
-                sliderContent.appendChild(slide);
+            }
+
+            function startSlideShow() {
+                if (slideInterval) {
+                    clearInterval(slideInterval);
+                }
+                slideInterval = setInterval(nextSlide, 10000);
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % sliderContent.children.length;
+                updateSlidePosition();
+                if (sliderContent.children[currentSlide].querySelector("video")) {
+                    clearInterval(slideInterval); // Stop auto-sliding if the current slide is a video
+                }
+            }
+
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + sliderContent.children.length) % sliderContent.children.length;
+                updateSlidePosition();
+            }
+
+            function videoEnded() {
+                clearInterval(slideInterval);
+                nextSlide();
+                startSlideShow();
+            }
+
+            function updateSlidePosition() {
+                sliderContent.style.transform = `translateX(-${currentSlide * 100}%)`;
+            }
+
+            fetchSliderData();
+
+            document.getElementById('nextSlide').addEventListener('click', () => {
+                nextSlide();
+                resetSlideInterval();
             });
 
-            startSlideShow();
-        } catch (error) {
-            console.error("Failed to fetch slider data:", error);
-        }
-    }
+            document.getElementById('prevSlide').addEventListener('click', () => {
+                prevSlide();
+                resetSlideInterval();
+            });
 
-    function startSlideShow() {
-        if (slideInterval) {
-            clearInterval(slideInterval);
-        }
-        slideInterval = setInterval(nextSlide, 10000);
-    }
-
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % sliderContent.children.length;
-        updateSlidePosition();
-        if (sliderContent.children[currentSlide].querySelector("video")) {
-            clearInterval(slideInterval); // Stop auto-sliding if the current slide is a video
-        }
-    }
-
-    function prevSlide() {
-        currentSlide = (currentSlide - 1 + sliderContent.children.length) % sliderContent.children.length;
-        updateSlidePosition();
-    }
-
-    function videoEnded() {
-        clearInterval(slideInterval);
-        nextSlide();
-        startSlideShow();
-    }
-
-    function updateSlidePosition() {
-        sliderContent.style.transform = `translateX(-${currentSlide * 100}%)`;
-    }
-
-    fetchSliderData();
-
-    document.getElementById('nextSlide').addEventListener('click', () => {
-        nextSlide();
-        resetSlideInterval();
-    });
-
-    document.getElementById('prevSlide').addEventListener('click', () => {
-        prevSlide();
-        resetSlideInterval();
-    });
-
-    function resetSlideInterval() {
-        clearInterval(slideInterval); // Clear existing interval
-        startSlideShow(); // Start a new interval
-    }
-});
-</script>
+            function resetSlideInterval() {
+                clearInterval(slideInterval); // Clear existing interval
+                startSlideShow(); // Start a new interval
+            }
+        });
+    </script>
 </body>
+
 </html>
